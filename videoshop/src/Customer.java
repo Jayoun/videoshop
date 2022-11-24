@@ -20,17 +20,9 @@ public class Customer {
 
 	public String statement() {
 		Iterator<Rental> rentals = _rentals.iterator();
-		String result = "Rental Record for " + getName() + "\n";
-		while(rentals.hasNext()) {
-		     Rental each = rentals.next();
-				result += "\t" + each.getMovie().getTitle() + "\t"
-						+ String.valueOf(each.getCharge()) + "\n";
-		}
-
-		// add footer lines
-		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints())
-				+ " frequent renter points";
+		String result = addHeader();		
+		result += addBody(rentals);
+		result += addFooter();
 		return result;
 	}
 
@@ -53,4 +45,23 @@ public class Customer {
 		}
 		return totalPoint;
 	}
+	
+	private String addHeader() {
+		return "Rental Record for " + getName() + "\n";
+	}
+	private String addBody(Iterator<Rental> rentals) {
+		 String result ="";
+		while(rentals.hasNext()) {
+			Rental each = rentals.next();
+			result += "\t" + each.getMovie().getTitle() + 
+					  "\t" + String.valueOf(each.getCharge()) + "\n";
+		}
+		return result;
+	}
+	private String addFooter() {
+		return "Amount owed is " + String.valueOf(getTotalCharge()) + "\n"
+		       + "You earned " + String.valueOf(getTotalFrequentRenterPoints())
+			   + " frequent renter points";
+	}
+
 }
