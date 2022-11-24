@@ -9,13 +9,13 @@ import org.junit.*;
 public class VideoClubTest {
 	protected Movie m0, m11, m12, m2;
 	protected Customer c1;
-	
+
 	@Before
 	public void setUp() {
-		m11 = new Movie("Sky Captain", 1);
-		m12 = new Movie("Alejandro Magno", 1);
-		m0 = new Movie("Accion Mutante", 0);
-		m2 = new Movie("Hermano Oso", 2);
+		m11 = new Movie("Sky Captain", Movie.PriceCode.NEW_RELEASE);
+		m12 = new Movie("Alejandro Magno", Movie.PriceCode.NEW_RELEASE);
+		m0 = new Movie("Accion Mutante", Movie.PriceCode.REGULAR);
+		m2 = new Movie("Hermano Oso", Movie.PriceCode.CHILDRENS);
 
 		c1 = new Customer("Manuel");
 	}

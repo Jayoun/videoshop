@@ -6,24 +6,24 @@ public class MovieTest extends TestCase {
     protected Movie m0, m11, m12, m2;
     protected Customer c1;
 
+
     @Before
     public void setUp() {
-        m11 = new Movie("Sky Captain", 1);
-        m12 = new Movie("Alejandro Magno", 1);
-        m0 = new Movie("Accion Mutante", 0);
-        m2 = new Movie("Hermano Oso", 2);
+        m11 = new Movie("Sky Captain", Movie.PriceCode.CHILDRENS);
+        m12 = new Movie("Alejandro Magno", Movie.PriceCode.CHILDRENS);
+        m0 = new Movie("Accion Mutante", Movie.PriceCode.REGULAR);
+        m2 = new Movie("Hermano Oso", Movie.PriceCode.NEW_RELEASE);
     }
 
-
     public void testGetPriceCode() {
-        assertEquals(0, m0.getPriceCode());
-        assertEquals(1, m11.getPriceCode());
-        assertEquals(2, m2.getPriceCode());
+        assertEquals(Movie.PriceCode.REGULAR, m0.getPriceCode());
+        assertEquals(Movie.PriceCode.CHILDRENS, m11.getPriceCode());
+        assertEquals(Movie.PriceCode.NEW_RELEASE, m2.getPriceCode());
     }
 
     public void testSetPriceCode() {
-        m12.setPriceCode(4);
-        assertEquals(4, m12.getPriceCode());
+        m12.setPriceCode(Movie.PriceCode.NEW_RELEASE);
+        assertEquals(Movie.PriceCode.NEW_RELEASE, m12.getPriceCode());
     }
 
     public void testGetTitle() {

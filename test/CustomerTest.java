@@ -7,20 +7,19 @@ public class CustomerTest extends TestCase {
     protected Movie m0, m1, m2;
     Rental r0, r1, r2;
 
+
     @Before
     public void setUp() {
         c1 = new Customer("Manuel");
 
-        m0 = new Movie("Accion Mutante", 0);
-        m1 = new Movie("Sky Captain", 1);
-        m2 = new Movie("Hermano Oso", 2);
+        m0 = new Movie("Accion Mutante", Movie.PriceCode.REGULAR);
+        m1 = new Movie("Sky Captain", Movie.PriceCode.NEW_RELEASE);
+        m2 = new Movie("Hermano Oso", Movie.PriceCode.CHILDRENS);
 
         r0 = new Rental(m0, 1);
         r1 = new Rental(m1, 5);
         r2 = new Rental(m2, 10);
     }
-
-
 
     public void testAddRental() {
         c1.addRental(r1);
